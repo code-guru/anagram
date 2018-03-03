@@ -1,0 +1,37 @@
+plugins {
+    id "com.adarshr.test-logger" version "1.1.2"
+}
+
+group 'se.king.meti'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'com.adarshr.test-logger'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+test {
+    testLogging.showStandardStreams true
+}
+
+testlogger {
+    theme 'mocha' // pick a theme - mocha, standard or plain
+    showExceptions true // set to false to disable detailed failure logs
+    slowThreshold 1000 // set threshold in milliseconds to highlight slow tests
+    showSummary true // displays a breakdown of passes, failures and skips along with total duration
+}
+
+task demo(type: JavaExec) {
+    classpath sourceSets.main.runtimeClasspath
+    main = "se.king.mehdi.CmdLineDemo"
+    args ""
+    standardInput = System.in
+}
