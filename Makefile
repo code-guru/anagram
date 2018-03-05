@@ -1,4 +1,4 @@
-.PHONY: test build demo
+.PHONY: test build demo docker-test docker-demo
 
 clean:
 	@./gradlew clean
@@ -11,3 +11,10 @@ build:
 
 demo:
 	@java -classpath build/classes/java/main se.king.mehdi.CmdLineDemo
+
+docker-test:
+	@docker-compose run test
+
+docker-demo:
+	@docker-compose run demo
+

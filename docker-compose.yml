@@ -3,12 +3,14 @@ version: "3.3"
 services:
   demo:
     build: .
+    image: anagram:mt
     command: java -classpath build/classes/java/main se.king.mehdi.CmdLineDemo
     tty: true
     stdin_open: true
     container_name: anagram_demo
 
-  tests:
+  test:
     build: .
+    image: anagram:mt
     command: ./gradlew --no-daemon clean test
     container_name: anagram_tests
