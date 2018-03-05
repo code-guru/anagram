@@ -69,6 +69,12 @@ public class AnagramTest {
     }
 
     @Test
+    public void calculateScore_ignoreCase() {
+        int score = anagram.calculateScore("meHdi", "IdheM");
+        assertThat(score, is(equalTo(5)));
+    }
+
+    @Test
     public void calculateScore_acceptBlackSpace() {
         int score = anagram.calculateScore("abcd efgh", "hgf edc ab");
         assertThat(score, is(equalTo(9)));

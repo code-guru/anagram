@@ -50,7 +50,9 @@ public class Verification {
         return word != null && word.length() > 1;
     }
 
-    public int calculateScore(String word, String anagram) {
+    public int calculateScore(String _word, String _anagram) {
+        String word = _word.toLowerCase();
+        String anagram = _anagram.toLowerCase();
         if (!(isWordValid(word) && isWordValid(anagram))) {
             throw new NullPointerException("The word cannot be null or less than 2 characters.");
         }
